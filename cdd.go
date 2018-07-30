@@ -12,7 +12,7 @@ import (
 
 	_ "github.com/lib/pq"
 	"github.com/urfave/cli"
-	"github.com/whatl3y/citus-database-documentor/cliapp"
+	"github.com/whatl3y/cdd/cliapp"
 )
 
 func main() {
