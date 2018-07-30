@@ -15,20 +15,20 @@ $ go install github.com/whatl3y/cdd
 ## Parameters
 
 1. `--connection` or `-c` [REQUIRED]: A postgres connection string to your DB we'll scan (i.e. postgres://localhost:5432/database)
-2. `--tenant_id` or `-i` [REQUIRED]: A single or comma-delimited list of columns that will be your sharding key.
+2. `--tenant_id` or `-i` [REQUIRED]: A single or comma-delimited list of columns that will be your sharding key. (i.e. customer_id or customer_id,cid)
 3. `--schema` or `-s` [OPTIONAL]: The schema we're looking in when scanning tables, DEFAULT: public
 
 ## Examples
 
 ```sh
 # if '$GOPATH/bin' is in your path:
-$ cdd -c postgres://localhost:5432/whatley?sslmode=disable -i tenantid
+$ cdd -c postgres://localhost:5432/database?sslmode=disable -i customer_id
 # Successfully created CSV to start using for your Citus migration: citus_info_############.csv
 
 # if '$GOPATH/bin' is NOT in your path:
-$ $GOPATH/bin/cdd -c postgres://localhost:5432/whatley?sslmode=disable -i tenantid
+$ $GOPATH/bin/cdd -c postgres://localhost:5432/database?sslmode=disable -i customer_id
 # Successfully created CSV to start using for your Citus migration: citus_info_############.csv
 
-$ cdd --connection postgres://localhost:5432/whatley?sslmode=disable -tenant_id tenantid
+$ cdd --connection postgres://localhost:5432/database?sslmode=disable -tenant_id customer_id,cid
 # Successfully created CSV to start using for your Citus migration: citus_info_############.csv
 ```
