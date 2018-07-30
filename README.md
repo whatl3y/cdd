@@ -2,7 +2,9 @@
 
 This is a small utility I wrote while we were transitioning our Postgres
 database to support sharding with [citus](https://github.com/citusdata/citus).
-Since for any tables you want to be distributed requires
+Since any tables you want to be distributed requires a sharding key, this
+utility aims to at least begin documenting all of your tables and tries
+to find the tenant_id/sharding key based on potential column names you provide.
 
 ## Install
 
